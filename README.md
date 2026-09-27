@@ -80,7 +80,7 @@ UI/UX projects.
 
 ## Responsive Design
 The portfolio was designed for multiple screen sizes:
-- Desktop
+- Desktop — 1440px
 - Tablet — 768px
 - Mobile — 390px
 
