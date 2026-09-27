@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project Archive for The Little Atelier — a collection of Java, Python, Web Development, and UI/UX projects.">
+    <meta name="theme-color" content="#f8f0f1">
+    <title>Projects — The Little Atelier</title>
+
+    <style>
+        html.fonts-lock { background: #f8f0f1; }
+        html.fonts-lock[data-theme="dark"] { background: #171314; }
+        html.fonts-lock body { visibility: hidden; }
+        html.fonts-lock *, html.fonts-lock *::before, html.fonts-lock *::after { animation: none !important; transition: none !important; }
+    </style>
+
+    <script>
+        (() => {
+            const root = document.documentElement;
+            root.classList.add("fonts-lock");
+            try {
+                const savedTheme = localStorage.getItem("little-atelier-theme");
+                root.setAttribute("data-theme", savedTheme === "dark" ? "dark" : "light");
+            } catch (error) {
+                root.setAttribute("data-theme", "light");
+            }
+            const revealPage = () => { root.classList.remove("fonts-lock"); };
+            const fontRequests = ['400 1rem "Inter"', '500 1rem "Inter"', '600 1rem "Inter"', '400 1rem "Cormorant Garamond"', '500 1rem "Cormorant Garamond"', '600 1rem "Cormorant Garamond"', '700 1rem "Cormorant Garamond"'];
+            const fontPromise = "fonts" in document ? Promise.all(fontRequests.map((font) => document.fonts.load(font))) : Promise.resolve();
+            const timeoutPromise = new Promise((resolve) => { window.setTimeout(resolve, 3000); });
+            Promise.race([fontPromise, timeoutPromise]).catch(() => {}).finally(revealPage);
+        })();
+    </script>
+
+    <!-- Google Fonts & Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+
+<body data-theme="light" class="theme-preload page-projects">
+    <!-- Prevents Theme Flash -->
+    <script>
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem("little-atelier-theme");
+                if (savedTheme === "dark" || savedTheme === "light") {
+                    document.body.setAttribute("data-theme", savedTheme);
+                }
+            } catch (error) {}
+        })();
+    </script>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress-fill"></span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html#home" class="site-logo" aria-label="The Little Atelier — Home">The Little Atelier</a>
+            <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#work" class="nav-link">Work</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link is-active">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <button type="button" class="light-switch" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+                <span class="light-switch-label">Light</span>
+                <span class="light-switch-track"><span class="light-switch-knob"></span></span>
+                <span class="light-switch-label">Night</span>
+            </button>
+            <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Project Hero -->
+        <section class="content-section page-hero" data-scroll-section data-scroll-note="Exploring Ideas Through Projects.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker"><span>01</span><small>Project Archive</small></div>
+                    <div class="section-heading-main">
+                        <h1 class="archive-title">Things I've <em>Built.</em></h1>
+                        <p>A growing collection of academic projects, programming exercises, web experiences, and creative experiments built throughout my development journey.</p>
+                    </div>
+                </div>
+                <div class="project-archive-intro">
+                    <p>Each project represents a different stage of learning — from practicing fundamentals to building larger systems and exploring how development and design can work together.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atelier Thread -->
+        <aside class="atelier-thread" aria-label="Project Archive Progress">
+            <div class="atelier-thread-line"><span class="atelier-thread-progress" id="atelier-thread-progress"></span></div>
+            <div class="atelier-thread-content">
+                <span class="atelier-thread-number" id="atelier-thread-number">01</span>
+                <span class="atelier-thread-note" id="atelier-thread-note">Exploring Ideas Through Projects.</span>
+            </div>
+        </aside>
+
+        <!-- Project Archive -->
+        <section class="content-section project-archive-section" data-scroll-section data-scroll-note="Sorting Experiments By What They Taught Me.">
+            <div class="section-inner">
+                <!-- Archive Header -->
+                <div class="archive-header">
+                    <div>
+                        <span class="archive-label">Collection</span>
+                        <h2>The <br>Collection.</h2>
+                    </div>
+                    <p>Browse the collection by technology, format, or area of exploration.</p>
+                </div>
+
+                <!-- Filters -->
+                <div class="project-filters" role="group" aria-label="Project Filters">
+                    <button type="button" class="filter-button is-active" data-filter="all">All</button>
+                    <button type="button" class="filter-button" data-filter="web">Web</button>
+                    <button type="button" class="filter-button" data-filter="java">Java</button>
+                    <button type="button" class="filter-button" data-filter="python">Python</button>
+                    <button type="button" class="filter-button" data-filter="uiux">UI/UX</button>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="project-grid archive-grid" id="project-archive">
+                    <!-- Project 01 -->
+                    <article class="project-card" data-category="java">
+                        <a href="project-details.html#aprp" class="project-card-link" aria-label="View Academic Peer Review Platform">
+                            <div class="project-card-visual">
+                                <span class="project-number">01</span><span class="project-type">Java · OOP</span>
+                                <div class="project-monogram">AR</div>
+                                <div class="project-visual-title">Review</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Academic System</span><h3>Academic Peer <br>Review Platform</h3><p>Java · OOP · Console Application</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 02 -->
+                    <article class="project-card" data-category="java">
+                        <a href="project-details.html#tiny-school-adventure" class="project-card-link" aria-label="View Tiny School Adventure">
+                            <div class="project-card-visual">
+                                <span class="project-number">02</span><span class="project-type">Java · JavaFX</span>
+                                <div class="project-monogram">TS</div>
+                                <div class="project-visual-title">Adventure</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Interactive Application</span><h3>Tiny School <br>Adventure</h3><p>Java · JavaFX · OOP</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 03 -->
+                    <article class="project-card" data-category="web uiux">
+                        <a href="project-details.html#inkwell-writers-hub" class="project-card-link" aria-label="View Inkwell Writers Hub">
+                            <div class="project-card-visual">
+                                <span class="project-number">03</span><span class="project-type">HTML · CSS · UI/UX</span>
+                                <div class="project-monogram">IW</div>
+                                <div class="project-visual-title">Stories</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Web Experience</span><h3>Inkwell <br>Writers Hub</h3><p>HTML · CSS · UI/UX</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 04 -->
+                    <article class="project-card" data-category="python">
+                        <a href="project-details.html#python-inventory-manager" class="project-card-link" aria-label="View Python Inventory Manager">
+                            <div class="project-card-visual">
+                                <span class="project-number">04</span><span class="project-type">Python</span>
+                                <div class="project-monogram">PY</div>
+                                <div class="project-visual-title">Inventory</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Programming Project</span><h3>Python <br>Inventory Manager</h3><p>Python · Logic · Data</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 05 -->
+                    <article class="project-card" data-category="python">
+                        <a href="project-details.html#interactive-sorter" class="project-card-link" aria-label="View Interactive Sorter">
+                            <div class="project-card-visual">
+                                <span class="project-number">05</span><span class="project-type">Python · Algorithms</span>
+                                <div class="project-monogram">IS</div>
+                                <div class="project-visual-title">Sorting</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Algorithm Practice</span><h3>Interactive <br>Sorter</h3><p>Python · Sorting Algorithms</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 06 -->
+                    <article class="project-card" data-category="java">
+                        <a href="project-details.html#java-song-artist-csv" class="project-card-link" aria-label="View Java Song and Artist CSV">
+                            <div class="project-card-visual">
+                                <span class="project-number">06</span><span class="project-type">Java · Data</span>
+                                <div class="project-monogram">JA</div>
+                                <div class="project-visual-title">Playlist</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Data Practice</span><h3>Java Song & <br>Artist CSV</h3><p>Java · Data Handling</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 07 -->
+                    <article class="project-card" data-category="web uiux">
+                        <a href="project-details.html#astralens-landing-page" class="project-card-link" aria-label="View Astralens Landing Page">
+                            <div class="project-card-visual">
+                                <span class="project-number">07</span><span class="project-type">Web · UI/UX</span>
+                                <div class="project-monogram">AL</div>
+                                <div class="project-visual-title">Astralens</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Landing Page</span><h3>Astralens <br>Landing Page</h3><p>Web Development · UI/UX</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 08 -->
+                    <article class="project-card" data-category="web uiux">
+                        <a href="project-details.html#tribute-page" class="project-card-link" aria-label="View Tribute Page">
+                            <div class="project-card-visual">
+                                <span class="project-number">08</span><span class="project-type">Web · UI/UX</span>
+                                <div class="project-monogram">TP</div>
+                                <div class="project-visual-title">Tribute</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Web Page</span><h3>Tribute <br>Page</h3><p>Web Development · UI/UX</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 09 -->
+                    <article class="project-card" data-category="java">
+                        <a href="project-details.html#java-payroll-system" class="project-card-link" aria-label="View Java Payroll System">
+                            <div class="project-card-visual">
+                                <span class="project-number">09</span><span class="project-type">Java · OOP</span>
+                                <div class="project-monogram">JP</div>
+                                <div class="project-visual-title">Payroll</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Application</span><h3>Java Payroll <br>System</h3><p>Java · Object-Oriented Programming</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+
+                    <!-- Project 10 -->
+                    <article class="project-card" data-category="web uiux">
+                        <a href="project-details.html#birthday-greet" class="project-card-link" aria-label="View Birthday Greet">
+                            <div class="project-card-visual">
+                                <span class="project-number">10</span><span class="project-type">Web · Creative</span>
+                                <div class="project-monogram">BG</div>
+                                <div class="project-visual-title">Greeting</div>
+                            </div>
+                            <div class="project-card-info">
+                                <div><span class="project-category">Creative Project</span><h3>Birthday <br>Greet</h3><p>Creative Web Experience</p></div>
+                                <span class="project-arrow" aria-hidden="true">↗</span>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state" id="project-empty-state" hidden>
+                    <strong>Nothing Here Yet.</strong>
+                    <span>Try Another Project Category.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Philosophy -->
+        <section class="content-section" data-scroll-section data-scroll-note="Every Project Teaches Something.">
+            <div class="section-inner">
+                <div class="project-archive-note">
+                    <span class="note-symbol">∴</span>
+                    <div>
+                        <p class="archive-note-main">Every Project Leaves Something Behind.</p>
+                        <p class="archive-note-description">Sometimes it is working code. Sometimes it is a better question. Both are part of learning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action -->
+        <section class="closing-section" data-scroll-section data-scroll-note="Keep Exploring.">
+            <div class="section-inner closing-inner">
+                <div class="section-marker"><span>04</span><small>Next</small></div>
+                <div class="closing-content">
+                    <p class="eyebrow">More To Come</p>
+                    <h2>Still <br><em>Building.</em></h2>
+                    <a href="contact.html" class="large-text-link">Start A Conversation <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <span>Made With Curiosity And A Little Bit Of Code.</span>
+        <span>© 2026 The Little Atelier</span>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

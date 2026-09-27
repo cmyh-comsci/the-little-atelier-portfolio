@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact The Little Atelier — connect with Camiyah Lei Sagun about projects, collaboration, and development.">
+    <meta name="theme-color" content="#f8f0f1">
+    <title>Contact — The Little Atelier</title>
+
+    <style>
+        html.fonts-lock { background: #f8f0f1; }
+        html.fonts-lock[data-theme="dark"] { background: #171314; }
+        html.fonts-lock body { visibility: hidden; }
+        html.fonts-lock *, html.fonts-lock *::before, html.fonts-lock *::after { animation: none !important; transition: none !important; }
+    </style>
+
+    <script>
+        (() => {
+            const root = document.documentElement;
+            root.classList.add("fonts-lock");
+            try {
+                const savedTheme = localStorage.getItem("little-atelier-theme");
+                root.setAttribute("data-theme", savedTheme === "dark" ? "dark" : "light");
+            } catch (error) {
+                root.setAttribute("data-theme", "light");
+            }
+            const revealPage = () => { root.classList.remove("fonts-lock"); };
+            const fontRequests = ['400 1rem "Inter"', '500 1rem "Inter"', '600 1rem "Inter"', '400 1rem "Cormorant Garamond"', '500 1rem "Cormorant Garamond"', '600 1rem "Cormorant Garamond"', '700 1rem "Cormorant Garamond"'];
+            const fontPromise = "fonts" in document ? Promise.all(fontRequests.map((font) => document.fonts.load(font))) : Promise.resolve();
+            const timeoutPromise = new Promise((resolve) => { window.setTimeout(resolve, 3000); });
+            Promise.race([fontPromise, timeoutPromise]).catch(() => {}).finally(revealPage);
+        })();
+    </script>
+
+    <!-- Google Fonts & Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+
+<body data-theme="light" class="theme-preload page-contact">
+    <!-- Theme Preload -->
+    <script>
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem("little-atelier-theme");
+                if (savedTheme === "dark" || savedTheme === "light") {
+                    document.body.setAttribute("data-theme", savedTheme);
+                }
+            } catch (error) {}
+        })();
+    </script>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress-fill"></span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html#home" class="site-logo" aria-label="The Little Atelier — Home">The Little Atelier</a>
+            <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#work" class="nav-link">Work</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link is-active">Contact</a>
+            </nav>
+            <button type="button" class="light-switch" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+                <span class="light-switch-label">Light</span>
+                <span class="light-switch-track"><span class="light-switch-knob"></span></span>
+                <span class="light-switch-label">Night</span>
+            </button>
+            <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <!-- Contact Hero -->
+        <section class="content-section page-hero contact-page-hero" data-scroll-section data-scroll-note="Continuing The Conversation.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker"><span>01</span><small>Contact</small></div>
+                    <div class="section-heading-main">
+                        <h1 class="archive-title">Let's Build <em>Something.</em></h1>
+                        <p>Have a project, collaboration idea, question, or simply want to connect? I'd be glad to hear from you.</p>
+                    </div>
+                </div>
+                <div class="project-archive-intro">
+                    <p>The Atelier is always open to thoughtful conversations, new ideas, and opportunities to learn through building.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atelier Thread -->
+        <aside class="atelier-thread" aria-label="Contact Page Progress">
+            <div class="atelier-thread-line"><span class="atelier-thread-progress" id="atelier-thread-progress"></span></div>
+            <div class="atelier-thread-content">
+                <span class="atelier-thread-number" id="atelier-thread-number">01</span>
+                <span class="atelier-thread-note" id="atelier-thread-note">Continuing The Conversation.</span>
+            </div>
+        </aside>
+
+        <!-- Contact Information -->
+        <section class="content-section" data-scroll-section data-scroll-note="A Few Ways To Reach Me.">
+            <div class="section-inner">
+                <div class="archive-header">
+                    <div><span class="archive-label">Reach Out</span><h2>Say <br>Hello.</h2></div>
+                    <p>For project discussions, academic collaborations, development conversations, or general inquiries.</p>
+                </div>
+                <div class="contact-information">
+                    <!-- Email -->
+                    <div class="contact-item">
+                        <span class="contact-item-label">Email</span>
+                        <div class="contact-item-value"><a href="mailto:cmyh.io@gmail.com">cmyh.io@gmail.com</a></div>
+                    </div>
+                    <!-- Contact No. -->
+                    <div class="contact-item">
+                        <span class="contact-item-label">Contact No.</span>
+                        <div class="contact-item-value">(+63) 967 128 5468</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Availability -->
+        <section class="content-section" data-scroll-section data-scroll-note="Where My Interests Are.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker"><span>02</span><small>Availability</small></div>
+                    <div class="section-heading-main">
+                        <h2>What I'm <br><em>Working On.</em></h2>
+                        <p>Areas I am currently exploring through academic and personal projects.</p>
+                    </div>
+                </div>
+                <div class="availability-list">
+                    <div class="availability-item"><span>Web Development</span><span class="availability-status">Exploring</span></div>
+                    <div class="availability-item"><span>Java & Object-Oriented Programming</span><span class="availability-status">Building</span></div>
+                    <div class="availability-item"><span>Python Programming</span><span class="availability-status">Practicing</span></div>
+                    <div class="availability-item"><span>UI/UX & Responsive Design</span><span class="availability-status">Exploring</span></div>
+                    <div class="availability-item"><span>Academic Projects</span><span class="availability-status">Active</span></div>
+                    <div class="availability-item"><span>Collaborative Learning</span><span class="availability-status">Open</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Links -->
+        <section class="content-section" data-scroll-section data-scroll-note="Find Me Elsewhere.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker"><span>03</span><small>Elsewhere</small></div>
+                    <div class="section-heading-main">
+                        <h2>Around The <br><em>Web.</em></h2>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/cmyh-comsci" target="_blank" class="social-link" aria-label="GitHub">GitHub</a>
+                    <a href="https://www.linkedin.com/in/camiyah-lei-sagun-bb3208369/" target="_blank" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+                <div class="note-box" style="margin-top: 2rem;">
+                    <p>Professional links will be added once the corresponding profiles are ready.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="content-section" data-scroll-section data-scroll-note="Leave A Note.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker"><span>04</span><small>Contact Form</small></div>
+                    <div class="section-heading-main">
+                        <h2>Leave A <br><em>Note.</em></h2>
+                        <p>Send a message through the form below. The current form is presented as a frontend interaction and does not yet send messages to a backend.</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" autocomplete="name" required>
+                    </div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+                    </div>
+                    <!-- Subject -->
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="" selected disabled>Select A Topic</option>
+                            <option value="project">Project</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="general">General Inquiry</option>
+                        </select>
+                    </div>
+                    <!-- Message -->
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write Your Message" maxlength="1000" required></textarea>
+                    </div>
+                    <!-- Submit -->
+                    <div class="form-actions">
+                        <button type="submit" class="form-submit"><span>Send Message</span></button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="closing-section" data-scroll-section data-scroll-note="Keep In Touch.">
+            <div class="section-inner closing-inner">
+                <div class="section-marker"><span>05</span><small>The Atelier</small></div>
+                <div class="closing-content">
+                    <p class="eyebrow">Until Next Time</p>
+                    <h2>Keep <br><em>Building.</em></h2>
+                    <a href="index.html#home" class="large-text-link">Back To The Beginning <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <span>Made With Curiosity And A Little Bit Of Code.</span>
+        <span>© 2026 The Little Atelier</span>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

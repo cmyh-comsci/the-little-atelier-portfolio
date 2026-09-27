@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Project case studies from The Little Atelier.">
+    <meta name="theme-color" content="#f8f0f1">
+    <title>Project Details — The Little Atelier</title>
+
+    <!-- Theme Preload -->
+    <script>
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem("little-atelier-theme");
+                if (savedTheme === "dark" || savedTheme === "light") {
+                    document.documentElement.dataset.theme = savedTheme;
+                }
+            } catch (error) {}
+        })();
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=block" rel="stylesheet">
+    
+    <!-- Stylesheets & Icons -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        html.fonts-loading body { visibility: hidden; }
+        html:not(.fonts-loading) body { visibility: visible; }
+        html { background: #f8f0f1; }
+        html[data-theme="dark"] { background: #171314; }
+    </style>
+
+    <script>
+        document.documentElement.classList.add("fonts-loading");
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(() => {
+                document.documentElement.classList.remove("fonts-loading");
+            });
+        } else {
+            document.documentElement.classList.remove("fonts-loading");
+        }
+    </script>
+</head>
+
+<body data-theme="light" class="theme-preload">
+    <!-- Theme Script -->
+    <script>
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem("little-atelier-theme");
+                if (savedTheme === "dark" || savedTheme === "light") {
+                    document.body.dataset.theme = savedTheme;
+                }
+            } catch (error) {}
+        })();
+    </script>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress-fill"></span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html#home" class="site-logo" aria-label="The Little Atelier — Home">The Little Atelier</a>
+            <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#work" class="nav-link">Work</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link is-active">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <button type="button" class="light-switch" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+                <span class="light-switch-label">Light</span>
+                <span class="light-switch-track"><span class="light-switch-knob"></span></span>
+                <span class="light-switch-label">Night</span>
+            </button>
+            <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="project-detail-content"></main>
+
+    <!-- Project Rendering Script -->
+    <script>
+        const projectDetails = {
+            "aprp": {
+                number: "01", type: "Java · OOP", category: "Academic System", title: "Academic Peer Review Platform.", mark: "AR", visual: "Review",
+                intro: "A console-based academic workflow designed around manuscript submission, peer evaluation, reviewer assignment, comments, scoring, and editorial decisions.",
+                overview: "A structured Java application that brings together multiple academic roles and review workflows in one console-based system.",
+                problem: "Academic review workflows involve different roles, responsibilities, and decision points. The project needed a structure that could keep those interactions understandable while demonstrating object-oriented programming.",
+                solution: "The system separates responsibilities across related classes and applies object-oriented concepts to model users, manuscripts, reviews, comments, searching, scoring, notifications, and editorial decisions.",
+                technologies: "Java · OOP · Arrays of Objects · Exception Handling",
+                lessons: "The project reinforced how planning class responsibilities early can make a larger console application easier to reason about, test, and explain.",
+                next: "Tiny School Adventure.", nextSlug: "tiny-school-adventure"
+            },
+            "tiny-school-adventure": {
+                number: "02", type: "Java · JavaFX", category: "Interactive Application", title: "Tiny School Adventure.", mark: "TS", visual: "Adventure",
+                intro: "A cozy school-life simulation project exploring object-oriented programming, player interaction, progression, and game systems.",
+                overview: "An interactive Java project built around a school setting and a collection of systems that support player-driven progression.",
+                problem: "A small life-simulation concept can quickly involve many interacting states, choices, items, relationships, and routines. The challenge was keeping those systems organized while preserving a coherent experience.",
+                solution: "The project brings those interactions together through Java classes and structured game routines, creating a foundation for handling player actions and progression inside the application.",
+                technologies: "Java · JavaFX · OOP",
+                lessons: "The project made object-oriented design more tangible by connecting classes and methods to systems that users can directly interact with.",
+                next: "Inkwell Writers Hub.", nextSlug: "inkwell-writers-hub"
+            },
+            "inkwell-writers-hub": {
+                number: "03", type: "HTML · CSS · UI/UX", category: "Web Experience", title: "Inkwell Writers Hub.", mark: "IW", visual: "Stories",
+                intro: "A web concept centered around writing, reading, and creating a focused editorial-style digital experience.",
+                overview: "A front-end web project focused on creating a distinct editorial atmosphere through layout, typography, and interface structure.",
+                problem: "Writing-focused websites need to balance content, readability, and visual identity without allowing decoration to compete with the material itself.",
+                solution: "The project uses a structured page layout and a typography-led visual system to create a focused web experience centered around written content.",
+                technologies: "HTML · CSS · UI/UX",
+                lessons: "The project helped translate an editorial visual direction into reusable front-end layout and styling decisions.",
+                next: "Python Inventory Manager.", nextSlug: "python-inventory-manager"
+            },
+            "python-inventory-manager": {
+                number: "04", type: "Python", category: "Programming Project", title: "Python Inventory Manager.", mark: "PY", visual: "Inventory",
+                intro: "A simple inventory management program built to practice Python fundamentals, data handling, user input, and program flow.",
+                overview: "A lightweight Python exercise centered on managing inventory information through an interactive program.",
+                problem: "Inventory programs need a straightforward way to accept input, store information, and let users work with that data without making the interaction unnecessarily complicated.",
+                solution: "The project organizes inventory-related operations into a small interactive program that focuses on clear user input and predictable data flow.",
+                technologies: "Python · Logic · Data Handling",
+                lessons: "The project strengthened the fundamentals behind interactive programs: input, state, conditions, and organized data.",
+                next: "Interactive Sorter.", nextSlug: "interactive-sorter"
+            },
+            "interactive-sorter": {
+                number: "05", type: "Python · Algorithms", category: "Algorithm Practice", title: "Interactive Sorter.", mark: "IS", visual: "Sorting",
+                intro: "A programming exercise focused on sorting logic, user interaction, and understanding algorithmic behavior through Python.",
+                overview: "A hands-on algorithm practice project that makes sorting behavior visible through an interactive Python program.",
+                problem: "Sorting algorithms are easier to understand when the steps can be observed rather than treated only as abstract code.",
+                solution: "The project places sorting logic inside an interactive program so the process can be explored through user-driven input and output.",
+                technologies: "Python · Sorting Algorithms",
+                lessons: "The project connected algorithmic concepts with concrete program behavior and reinforced the importance of tracing each step of a process.",
+                next: "Java Song & Artist CSV.", nextSlug: "java-song-artist-csv"
+            },
+            "java-song-artist-csv": {
+                number: "06", type: "Java · Data", category: "Data Practice", title: "Java Song & Artist CSV.", mark: "JA", visual: "Playlist",
+                intro: "A Java practice project focused on structured data and working with song and artist information.",
+                overview: "A Java exercise built around organizing and working with structured song and artist data.",
+                problem: "Working with structured records requires clear data organization and predictable operations for reading and using information.",
+                solution: "The project uses Java to work with song and artist records in a structured way, giving practice with data-oriented programming tasks.",
+                technologies: "Java · Data Handling",
+                lessons: "The project provided practice in thinking about how structured information is represented and manipulated inside a program.",
+                next: "Astralens Landing Page.", nextSlug: "astralens-landing-page"
+            },
+            "astralens-landing-page": {
+                number: "07", type: "Web · UI/UX", category: "Landing Page", title: "Astralens Landing Page.", mark: "AL", visual: "Astralens",
+                intro: "A landing-page project included in the portfolio as part of its collection of web and interface-focused work.",
+                overview: "A front-end landing-page project centered on presenting a focused idea through a dedicated web experience.",
+                problem: "A landing page has limited space to establish hierarchy, communicate its purpose, and guide visitors through the interface.",
+                solution: "The project organizes the page around a clear landing-page structure, using visual hierarchy and interface decisions to create a coherent experience.",
+                technologies: "Web Development · UI/UX",
+                lessons: "The project contributed to learning how layout, hierarchy, and visual presentation shape a user's first interaction with a site.",
+                next: "Tribute Page.", nextSlug: "tribute-page"
+            },
+            "tribute-page": {
+                number: "08", type: "Web · UI/UX", category: "Web Page", title: "Tribute Page.", mark: "TP", visual: "Tribute",
+                intro: "A web page project included as an early part of the portfolio's front-end development work.",
+                overview: "A focused web-page exercise centered on presenting content through a structured and readable interface.",
+                problem: "A content-focused page needs a clear hierarchy so that information remains understandable while still feeling intentional and visually composed.",
+                solution: "The page uses structured content and front-end styling to create a focused presentation for its subject.",
+                technologies: "Web Development · UI/UX",
+                lessons: "The project helped strengthen the relationship between semantic structure, visual hierarchy, and user-facing presentation.",
+                next: "Java Payroll System.", nextSlug: "java-payroll-system"
+            },
+            "java-payroll-system": {
+                number: "09", type: "Java · OOP", category: "Application", title: "Java Payroll System.", mark: "JP", visual: "Payroll",
+                intro: "A Java application project focused on representing payroll-related operations through object-oriented programming.",
+                overview: "A Java application built around a familiar administrative problem domain and used as practice for organizing program logic into related objects and operations.",
+                problem: "Payroll workflows involve several connected pieces of information and calculations, making them useful for practicing structured program design.",
+                solution: "The project models payroll-related information and operations in Java, using object-oriented organization to keep the program's responsibilities manageable.",
+                technologies: "Java · Object-Oriented Programming",
+                lessons: "The project reinforced how real-world concepts can be translated into classes, attributes, methods, and relationships.",
+                next: "Birthday Greet.", nextSlug: "birthday-greet"
+            },
+            "birthday-greet": {
+                number: "10", type: "Web · Creative", category: "Creative Project", title: "Birthday Greet.", mark: "BG", visual: "Greeting",
+                intro: "A small creative project included to represent lighter, more expressive work alongside the larger academic and programming projects.",
+                overview: "A compact greeting-focused project that adds a more personal and playful entry to the project archive.",
+                problem: "Small creative pages still need to communicate one clear idea while keeping the experience visually engaging and easy to follow.",
+                solution: "The project focuses on turning a simple greeting into a presentable digital experience through focused content and interface choices.",
+                technologies: "Creative Web Experience",
+                lessons: "The project is a reminder that not every useful development exercise has to be large; smaller projects can still strengthen presentation and design instincts.",
+                next: "Academic Peer Review Platform.", nextSlug: "aprp"
+            }
+        };
+
+        const details = document.getElementById("project-detail-content");
+
+        function renderProject(slug) {
+            const normalizedSlug = (slug || "aprp").replace("#", "").toLowerCase();
+            const project = projectDetails[normalizedSlug] || projectDetails.aprp;
+
+            details.innerHTML = `
+            <section class="content-section project-detail-hero" data-scroll-section data-scroll-note="Building Through Practice.">
+                <div class="section-inner">
+                    <a href="projects.html" class="back-link">← Back To Projects</a>
+                    <div class="project-detail-heading">
+                        <div class="section-marker">
+                            <span>${project.number}</span>
+                            <small>${project.category}</small>
+                        </div>
+                        <div>
+                            <p class="eyebrow">Project Case Study</p>
+                            <h1 class="project-detail-title">${project.title}</h1>
+                            <p class="project-detail-introduction">${project.intro}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section project-detail-visual-section">
+                <div class="section-inner">
+                    <div class="project-detail-visual">
+                        <span class="project-detail-visual-number">${project.number} / Featured Project</span>
+                        <span class="project-detail-visual-type">${project.type}</span>
+                        <div class="project-detail-monogram">${project.mark}</div>
+                        <div class="project-detail-visual-title">${project.visual}</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-inner">
+                    <div class="section-heading">
+                        <div class="section-marker"><span>01</span><small>Overview</small></div>
+                    </div>
+                    <div class="project-detail-overview-grid">
+                        <div class="project-detail-overview-item"><span>Project</span><strong>${project.title}</strong></div>
+                        <div class="project-detail-overview-item"><span>Focus</span><strong>${project.category}</strong></div>
+                        <div class="project-detail-overview-item"><span>Stack</span><strong>${project.technologies}</strong></div>
+                        <div class="project-detail-overview-item"><span>Archive Number</span><strong>${project.number}</strong></div>
+                    </div>
+                    <div class="project-detail-introduction">${project.overview}</div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-inner">
+                    <div class="section-heading">
+                        <div class="section-marker"><span>02</span><small>Problem</small></div>
+                    </div>
+                    <div class="project-detail-list-item">
+                        <h3>The Starting Point</h3>
+                        <p>${project.problem}</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-inner">
+                    <div class="section-heading">
+                        <div class="section-marker"><span>03</span><small>Process</small></div>
+                    </div>
+                    <div class="case-study-process">
+                        <article class="case-study-process-item"><span>01</span><h3>Understand</h3><p>Define the purpose, expected interaction, and core project requirements.</p></article>
+                        <article class="case-study-process-item"><span>02</span><h3>Structure</h3><p>Organize the content, logic, components, and relationships before implementation grows.</p></article>
+                        <article class="case-study-process-item"><span>03</span><h3>Build</h3><p>Translate the planned structure into working code and user-facing behavior.</p></article>
+                        <article class="case-study-process-item"><span>04</span><h3>Refine</h3><p>Review the result, identify rough edges, and improve the clarity of the experience.</p></article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-inner">
+                    <div class="section-heading">
+                        <div class="section-marker"><span>04</span><small>Solution</small></div>
+                    </div>
+                    <div class="project-detail-list-item">
+                        <h3>Built Around The Idea</h3>
+                        <p>${project.solution}</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-inner">
+                    <div class="section-heading">
+                        <div class="section-marker"><span>05</span><small>Technology</small></div>
+                    </div>
+                    <div class="stack-list">
+                        <div class="stack-item"><span>Primary Stack</span><strong>${project.technologies}</strong></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="section-inner">
+                    <div class="section-heading">
+                        <div class="section-marker"><span>06</span><small>Result & Lessons</small></div>
+                    </div>
+                    <div class="lessons-list">
+                        <div class="lesson-item"><span>01</span><p>${project.lessons}</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="closing-section">
+                <div class="section-inner closing-inner">
+                    <div class="section-marker"><span>07</span><small>Next Project</small></div>
+                    <div class="closing-content">
+                        <p class="eyebrow">Continue Exploring</p>
+                        <h2><a href="project-details.html#${project.nextSlug}" class="next-project-link" data-project-slug="${project.nextSlug}">${project.next}</a></h2>
+                        <a href="projects.html" class="large-text-link">Return To Project Archive <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </section>
+            `;
+
+            // Transition logic
+            const nextProjectLink = details.querySelector(".next-project-link");
+            if (nextProjectLink) {
+                nextProjectLink.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    const nextSlug = nextProjectLink.dataset.projectSlug;
+                    history.pushState({ project: nextSlug }, "", `project-details.html#${nextSlug}`);
+                    renderProject(nextSlug);
+                    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+                });
+            }
+        }
+
+        // History handling
+        window.addEventListener("popstate", () => {
+            const slug = window.location.hash.replace("#", "").toLowerCase() || "aprp";
+            renderProject(slug);
+            window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        });
+
+        // Initialization
+        const initialSlug = window.location.hash.replace("#", "").toLowerCase() || "aprp";
+        renderProject(initialSlug);
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Little Atelier — a personal developer portfolio documenting projects, experiments, learning, and creative exploration.">
+    <meta name="theme-color" content="#f8f0f1">
+    <title>The Little Atelier — Developer Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+
+<body data-theme="light" class="theme-preload">
+    <!-- Theme Preload -->
+    <script>
+        (() => {
+            try {
+                const savedTheme = localStorage.getItem("little-atelier-theme");
+                if (savedTheme === "dark" || savedTheme === "light") {
+                    document.body.setAttribute("data-theme", savedTheme);
+                }
+            } catch (error) {}
+        })();
+    </script>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" aria-hidden="true">
+        <span class="scroll-progress-fill"></span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="site-header-inner">
+            <!-- Logo -->
+            <a href="#home" class="site-logo" aria-label="The Little Atelier — Home">The Little Atelier</a>
+
+            <!-- Navigation -->
+            <nav class="site-nav" id="site-nav" aria-label="Main Navigation">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#work" class="nav-link">Work</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Light Switch -->
+            <button type="button" class="light-switch" id="theme-toggle" aria-label="Switch to dark mode" aria-pressed="false">
+                <span class="light-switch-label">Light</span>
+                <span class="light-switch-track"><span class="light-switch-knob"></span></span>
+                <span class="light-switch-label">Night</span>
+            </button>
+
+            <!-- Mobile Menu -->
+            <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Home Section -->
+        <section class="hero-section" id="home" data-scroll-section data-scroll-note="Building through practice.">
+            <div class="section-inner hero-inner">
+                
+                <!-- Portrait -->
+                <div class="hero-portrait-column">
+                    <figure class="portrait-frame">
+                        <div class="portrait-border">
+                            <img src="images/profile/profile.png" alt="Portrait of Camiyah Lei Sagun" class="profile-image" id="profile-image">
+                            <div class="portrait-placeholder" aria-hidden="true">
+                                <span>The Little Atelier</span>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="portrait-meta">
+                        <span>01 / Developer</span>
+                        <span>CAMIYAH LEI U. SAGUN</span>
+                    </div>
+                </div>
+
+                <!-- Introduction -->
+                <div class="hero-content">
+                    <p class="eyebrow">Building · Learning · Refining</p>
+                    <h1 class="hero-title">Hello, I am <em>Camiyah Lei</em></h1>
+                    <p class="hero-description">A personal space for projects, experiments, ideas, and everything I learn while growing through code and design.</p>
+                    
+                    <div class="hero-actions">
+                        <a href="projects.html" class="text-link">View Projects <span aria-hidden="true">↗</span></a>
+                        <a href="#about" class="text-link">About Me <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-footer"></div>
+        </section>
+
+        <!-- Atelier Scroll Thread -->
+        <aside class="atelier-thread" aria-label="Portfolio Progress">
+            <div class="atelier-thread-line">
+                <span class="atelier-thread-progress" id="atelier-thread-progress"></span>
+            </div>
+            <div class="atelier-thread-content">
+                <span class="atelier-thread-number" id="atelier-thread-number">01</span>
+                <span class="atelier-thread-note" id="atelier-thread-note">Building Through Practice.</span>
+            </div>
+        </aside>
+
+        <!-- Work Section -->
+        <section class="content-section work-section" id="work" data-scroll-section data-scroll-note="The people and roles behind the code.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker">
+                        <span>02</span>
+                        <small>Work</small>
+                    </div>
+                    <div class="section-heading-main">
+                        <h2>Beyond <br><em>The Code.</em></h2>
+                        <p>The roles, responsibilities, and communities I am part of — the people side of building things.</p>
+                    </div>
+                </div>
+
+                <div class="work-list">
+                    <!-- Role 01 -->
+                    <article class="work-item">
+                        <div class="work-meta">
+                            <span class="work-period">Current</span>
+                            <span class="work-place">School of Computing</span>
+                        </div>
+                        <div class="work-body">
+                            <h3>Councilor for Community Extension Services</h3>
+                            <p>Representing fellow students of the School of Computing — bringing student concerns forward, helping organize school activities, and supporting the community around the program.</p>
+                            <div class="interest-tags">
+                                <span>Student Leadership</span>
+                                <span>Community</span>
+                                <span>Organizing</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Role 02 -->
+                    <article class="work-item">
+                        <div class="work-meta">
+                            <span class="work-period">Ongoing</span>
+                            <span class="work-place">Computer Science</span>
+                        </div>
+                        <div class="work-body">
+                            <h3>Student Developer</h3>
+                            <p>Building academic and personal projects in Java, Python, and web development, and documenting what each one teaches along the way.</p>
+                            <div class="interest-tags">
+                                <span>Java</span>
+                                <span>Python</span>
+                                <span>Web Development</span>
+                                <span>Software Development</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Education Entry -->
+                    <article class="work-item">
+                        <div class="work-meta">
+                            <span class="work-period">Current</span>
+                            <span class="work-place">Holy Angel University</span>
+                        </div>
+                        <div class="work-body">
+                            <h3>Bachelor of Science in Computer Science</h3>
+                            <p>School of Computing</p>
+                            <div class="interest-tags">
+                                <span>Computer Science</span>
+                                <span>Academic Development</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-link-row">
+                    <a href="projects.html" class="text-link">Explore All Projects <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="content-section about-section" id="about" data-scroll-section data-scroll-note="Learning through curiosity.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker">
+                        <span>03</span>
+                        <small>About The Developer</small>
+                    </div>
+                    <div class="section-heading-main">
+                        <h2>A Developer In <em>Progress.</em></h2>
+                        <p>I am a Computer Science student who enjoys building projects, understanding how systems work, and turning concepts into something practical.</p>
+                    </div>
+                </div>
+
+                <!-- About Content -->
+                <div class="about-content">
+                    <div class="about-introduction">
+                        <p class="about-lead">Curious By Default.</p>
+                        <p>I approach development with curiosity. I like understanding the reasoning behind a solution, experimenting with different approaches, and learning from the process of making something work.</p>
+                        <p>My projects often begin as small exercises and gradually become opportunities to explore better structure, cleaner interfaces, and more thoughtful ways of solving problems.</p>
+                    </div>
+
+                    <!-- Credentials & Achievements -->
+                    <div class="journey-section">
+                        <div class="journey-header">
+                            <span>Credentials & Achievements</span>
+                            <span>Milestones Along The Way</span>
+                        </div>
+                        <div class="journey-list">
+                            <article class="journey-item">
+                                <span class="journey-number">01</span>
+                                <div>
+                                    <h3>Councilor for Community Extension Services</h3>
+                                    <p>CSC-SoC · 2026 — 2027</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">02</span>
+                                <div>
+                                    <h3>President's List</h3>
+                                    <p>Holy Angel University · First Semester, AY 2025 — 2026</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">03</span>
+                                <div>
+                                    <h3>Champion — TAPPED Literary Category</h3>
+                                    <p>The Access Point · March 3, 2026</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">04</span>
+                                <div>
+                                    <h3>National Certificate II — Computer Systems Servicing</h3>
+                                    <p>TESDA · 2025</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">05</span>
+                                <div>
+                                    <h3>CompTIA Tech+</h3>
+                                    <p>CompTIA · October 17, 2025</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">06</span>
+                                <div>
+                                    <h3>ICT Work Immersion</h3>
+                                    <p>Don Jesus Gonzales High School · December 2024</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">07</span>
+                                <div>
+                                    <h3>Think Like a Leader, Act Like a Defender</h3>
+                                    <p>Holy Angel University — School of Computing · April 25, 2026</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">08</span>
+                                <div>
+                                    <h3>The Joy of Love: Pamana ng Kulay ng Tahanan</h3>
+                                    <p>HAU-USC · June 15, 2026</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Development Journey -->
+                    <div class="journey-section">
+                        <div class="journey-header">
+                            <span>Development Journey</span>
+                            <span>Learning Through Building</span>
+                        </div>
+                        <div class="journey-list">
+                            <article class="journey-item">
+                                <span class="journey-number">01</span>
+                                <div>
+                                    <h3>Exploring The Fundamentals</h3>
+                                    <p>Building a foundation through programming syntax, problem solving, basic program flow, and small exercises.</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">02</span>
+                                <div>
+                                    <h3>Building With Java</h3>
+                                    <p>Exploring classes, objects, methods, arrays, object-oriented programming, inheritance, polymorphism, and exception handling.</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">03</span>
+                                <div>
+                                    <h3>Expanding Into Web Development</h3>
+                                    <p>Creating structured web experiences and experimenting with responsive layouts, interfaces, typography, and CSS-based visual systems.</p>
+                                </div>
+                            </article>
+                            <article class="journey-item">
+                                <span class="journey-number">04</span>
+                                <div>
+                                    <h3>Connecting Development And Design</h3>
+                                    <p>Exploring how structure, interaction, usability, and visual design can work together to create clearer digital experiences.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="skills-section">
+                        <div class="skills-header">
+                            <span>Skills</span>
+                            <span>Tools & Concepts</span>
+                        </div>
+                        <div class="skills-grid">
+                            <div class="skill-group">
+                                <h3>Frontend Development</h3>
+                                <p>HTML · CSS · Responsive Design</p>
+                            </div>
+                            <div class="skill-group">
+                                <h3>Programming</h3>
+                                <p>Java · Python</p>
+                            </div>
+                            <div class="skill-group">
+                                <h3>Core Concepts</h3>
+                                <p>Object-Oriented Programming · Data Structures · Problem Solving · Exception Handling</p>
+                            </div>
+                            <div class="skill-group">
+                                <h3>IT & Networking</h3>
+                                <p>Computer Assembly & Troubleshooting · Router & Switch Configuration</p>
+                            </div>
+                            <div class="skill-group">
+                                <h3>Documentation & Productivity</h3>
+                                <p>Documentation & Report Writing · Microsoft Word · Excel · PowerPoint</p>
+                            </div>
+                            <div class="skill-group">
+                                <h3>Design & Tools</h3>
+                                <p>Figma · GitHub · Visual Studio Code · UI/UX · Canva</p>
+                            </div>
+                            <div class="skill-group">
+                                <h3>Coordination</h3>
+                                <p>Basic Online Management & Coordination</p>
+                            </div>
+                            <div class="skill-group">
+                                <h3>Writing & Communication</h3>
+                                <p>Creative Writing · Literary Writing · Report Writing</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Currently Learning Section -->
+        <section class="content-section learning-section" id="learning" data-scroll-section data-scroll-note="Experimenting, testing, refining.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker">
+                        <span>04</span>
+                        <small>Currently Learning</small>
+                    </div>
+                </div>
+                <div class="learning-content">
+                    <h2>Still <br>Exploring.</h2>
+                    <div class="learning-text">
+                        <p>I am particularly interested in projects that allow programming and design to meet — where technical structure can support a clearer, intentional user experience.</p>
+                        <div class="interest-tags">
+                            <span>Web Development</span>
+                            <span>Java & OOP</span>
+                            <span>Data Structures</span>
+                            <span>UI/UX</span>
+                            <span>Responsive Design</span>
+                            <span>Problem Solving</span>
+                        </div>
+                        <a href="#about" class="text-link">Read The Development Journey <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="content-section process-section" id="process" data-scroll-section data-scroll-note="Turning small ideas into working systems.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker">
+                        <span>05</span>
+                        <small>The Process</small>
+                    </div>
+                    <div class="section-heading-main">
+                        <h2>From Idea To <em>Something Real.</em></h2>
+                    </div>
+                </div>
+                <div class="process-grid">
+                    <article class="process-card">
+                        <span>01</span>
+                        <h3>Explore</h3>
+                        <p>Understand the problem, experiment with ideas, and figure out what the project needs.</p>
+                    </article>
+                    <article class="process-card">
+                        <span>02</span>
+                        <h3>Build</h3>
+                        <p>Turn concepts into structure, code, interfaces, and working components.</p>
+                    </article>
+                    <article class="process-card">
+                        <span>03</span>
+                        <h3>Test</h3>
+                        <p>Try different approaches, identify problems, and improve what does not work.</p>
+                    </article>
+                    <article class="process-card">
+                        <span>04</span>
+                        <h3>Refine</h3>
+                        <p>Clean the structure, rethink decisions, and gradually turn experiments into better work.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Preview Section -->
+        <section class="content-section contact-preview-section" id="contact" data-scroll-section data-scroll-note="Continuing the conversation.">
+            <div class="section-inner">
+                <div class="section-heading">
+                    <div class="section-marker">
+                        <span>06</span>
+                        <small>Contact</small>
+                    </div>
+                </div>
+                <div class="contact-preview-content">
+                    <p class="eyebrow">Have A Project In Mind?</p>
+                    <h2>Let's Build <br><em>Something.</em></h2>
+                    <p>Have a project, question, collaboration idea, or simply want to connect? The Little Atelier is always open to thoughtful conversations and opportunities to learn, build, and create.</p>
+                    <div class="hero-actions">
+                        <a href="contact.html" class="text-link">Get In Touch <span aria-hidden="true">↗</span></a>
+                        <a href="mailto:cmyh.io@gmail.com" class="text-link">Email Directly <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="closing-section" data-scroll-section data-scroll-note="Keep building.">
+            <div class="section-inner closing-inner">
+                <div class="section-marker">
+                    <span>07</span>
+                    <small>The Atelier</small>
+                </div>
+                <div class="closing-content">
+                    <p class="eyebrow">The Next Part Of The Journey</p>
+                    <h2>Keep <br><em>Building.</em></h2>
+                    <a href="#home" class="large-text-link">Back To The Beginning <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <span>Made With Curiosity And A Little Bit Of Code.</span>
+        <span>© 2026 The Little Atelier</span>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
